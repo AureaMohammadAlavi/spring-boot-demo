@@ -3,7 +3,7 @@
 #!/bin/bash
 
 echo $PWD
-cd source_code
+cd source-code
 echo $PWD
 ls -la
 ./mvnw package
