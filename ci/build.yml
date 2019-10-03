@@ -23,10 +23,10 @@ jobs:
         privileged: true
         file: source-code/ci/tasks/package.yml
         outputs:
-        - name: "source-code/target"
+        - name: target
       - put: myapp-image
         inputs:
-        - name: "source-code/target"
+        - name: target
         params:
           build: source-code
           build_args:
