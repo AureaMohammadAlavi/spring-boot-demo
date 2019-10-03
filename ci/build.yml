@@ -25,6 +25,8 @@ jobs:
         outputs:
           - name: source-code/target
       - put: myapp-image
+        inputs:
+          - name: source-code/target
         params:
           build: source-code
           build_args:
