@@ -12,4 +12,5 @@ inputs:
 - name: source-code
 
 run:
-  path: source-code/ci/tasks/package.sh
+  path: bin/sh
+  args: ["source-code/ci/tasks/package.sh"]
