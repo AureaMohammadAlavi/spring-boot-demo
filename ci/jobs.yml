@@ -7,4 +7,4 @@ jobs:
     trigger: true
   - task: package
     privileged: true
-    file: source-code/ci/tasks/package.yml
+    file: ci/tasks/package.yml
