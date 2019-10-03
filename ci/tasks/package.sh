@@ -2,5 +2,6 @@
 
 #!/bin/bash
 
+echo $PWD
 ./mvnw package
 
