@@ -8,3 +8,6 @@ jobs:
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml
+  - put: myapp-image
+    params:
+      build: myapp
