@@ -1,0 +1,8 @@
+# ci/resources.yml
+
+resources:
+- name: source-code
+  type: git
+  source:
+    uri: https://github.com/AureaMohammadAlavi/spring-boot-demo
+    branch: master
