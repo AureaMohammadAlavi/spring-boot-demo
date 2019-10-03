@@ -22,9 +22,8 @@ jobs:
       - task: package
         privileged: true
         file: source-code/ci/tasks/package.yml
-        outputs:
-        - name: target
       - put: myapp-image
+        inputs: source-code
         params:
           build: source-code
           build_args:
