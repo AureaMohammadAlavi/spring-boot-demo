@@ -26,4 +26,4 @@ jobs:
         params:
           build: source-code
           build_args:
-            BUILD_PATH: source-code/target
+            JAR_FILE: source-code/target/spring-demo-1.0-SNAPSHOT.jar
