@@ -6,3 +6,9 @@ resources:
   source:
     uri: https://github.com/AureaMohammadAlavi/spring-boot-demo
     branch: master
+- name: myapp-image
+  type: docker-image
+  source:
+    username: smash1986
+    password: 123!@#abc8
+    repository: smash1986/myapp
