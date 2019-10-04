@@ -15,5 +15,6 @@ echo "Generating symbolic link for caches"
 
 cd app
 ./mvnw package
-cp target/*.jar ../build/spring-boot-app.jar
-ls -la ../build
+mkdir -p ../build/lib
+cp target/*.jar ../build/lib/spring-boot-app.jar
+ls -laR ../build
