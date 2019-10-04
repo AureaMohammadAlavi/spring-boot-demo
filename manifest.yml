@@ -1,0 +1,9 @@
+---
+applications:
+- name: smash-web-app
+  disk: 256M
+  memory: 128M
+  random-route: true
+  buildpack: https://github.com/cloudfoundry/java-buildpack
+  env:
+    SPRING_PROFILES_ACTIVE : cloud
