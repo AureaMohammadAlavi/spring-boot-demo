@@ -2,7 +2,7 @@
 applications:
 - name: smash-web-app
   disk: 256M
-  memory: 128M
+  memory: 1024M
   random-route: true
   buildpack: https://github.com/cloudfoundry/java-buildpack
   env:
