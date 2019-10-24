@@ -513,7 +513,7 @@
             <con:originalUri>http://localhost/api/employees</con:originalUri>
             <con:assertion type="Response SLA Assertion" id="ada3b8a5-7df6-4199-9b16-8c5f1d79ba4e" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>20000</SLA>
               </con:configuration>
             </con:assertion>
             <con:assertion type="Valid HTTP Status Codes" id="3687cfbf-4075-4b80-8c16-d64670864f6b" name="Valid HTTP Status Codes">
@@ -566,7 +566,7 @@ if (index > 0) {
             </con:assertion>
             <con:assertion type="Response SLA Assertion" id="8989f8aa-1a99-4897-a81b-a7975d92eb26" name="Response SLA">
               <con:configuration>
-                <SLA>200</SLA>
+                <SLA>20000</SLA>
               </con:configuration>
             </con:assertion>
             <con:credentials>
