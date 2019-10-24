@@ -1,4 +1,24 @@
+
 spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mohammad
+    username: mohammad
+    password:  
   data:
     rest:
       base-path: /api
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+server:
+  port: 8090
+
+
+

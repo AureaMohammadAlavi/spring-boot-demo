@@ -5,9 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration;
 
 @SpringBootApplication
 public class Application {
@@ -24,6 +26,9 @@ public class Application {
   @Bean
   CommandLineRunner databaseLoader() {
     return args -> {
+      if (this.managerRepository.findAll().iterator().hasNext()) {
+        return;
+      }
       Manager greg = this.managerRepository.save(new Manager("greg", "turnquist",
           "ROLE_MANAGER"));
       Manager oliver = this.managerRepository.save(new Manager("oliver", "gierke",
