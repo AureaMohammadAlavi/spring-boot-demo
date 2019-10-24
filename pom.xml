@@ -17,13 +17,64 @@
 
   <properties>
     <java.version>1.8</java.version>
+    <springfox.version>3.0.0-SNAPSHOT</springfox.version>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>jcenter-snapshots</id>
+      <name>jcenter</name>
+      <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
+    </repository>
+    <repository>
+      <id>SmartBearRepository</id>
+      <name>SmartBear</name>
+      <url>http://smartbearsoftware.com/repository/maven2</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>SmartBearPluginRepository</id>
+      <url>http://smartbearsoftware.com/repository/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
+    <dependency>
+      <groupId>com.smartbear</groupId>
+      <artifactId>ready-api-jdbc-virts</artifactId>
+      <version>2.8.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${springfox.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-data-rest</artifactId>
+      <version>${springfox.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${springfox.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -39,6 +90,10 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-websocket</artifactId>
     </dependency>
     <dependency>
@@ -49,16 +104,59 @@
       <groupId>org.thymeleaf.extras</groupId>
       <artifactId>thymeleaf-extras-springsecurity5</artifactId>
     </dependency>
+
+    <!--     <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+
+     <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.13</version>
+        <scope>runtime</scope>
+    </dependency>
+    -->
+
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.5</version>
       <scope>runtime</scope>
     </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-client</artifactId>
+      <version>5.15.10</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.rabbitmq</groupId>
+      <artifactId>amqp-client</artifactId>
+      <version>5.7.1</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
@@ -112,6 +210,43 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>1.6.1</version>
+        <configuration>
+          <to>
+            <image>gcr.io/pubsubdemo-1569168935088/my-app</image>
+            <credHelper>gcr</credHelper>
+          </to>
+        </configuration>
+      </plugin>
+
+      <!--  <plugin>
+          <groupId>com.smartbear</groupId>
+          <artifactId>ready-api-maven-plugin</artifactId>
+          <version>2.8.2</version>
+          <executions>
+            <execution>
+              <phase>test</phase>
+              <goals>
+                <goal>loadtest</goal>
+              </goals>
+              <configuration>
+                <projectFile>Project-3-readyapi-project.xml</projectFile>
+                <loadTest>Load Test 1</loadTest>
+                <reportFormat>HTML</reportFormat>
+                <junitReport>true</junitReport>
+                <reports>${basedir}/target/surefire-reports</reports>
+                <settingsFile>soapui-settings.xml</settingsFile>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>-->
+
+
+
 
     </plugins>
   </build>
