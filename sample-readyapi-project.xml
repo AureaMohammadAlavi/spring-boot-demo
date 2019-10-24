@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c0299bd2-3c74-413e-bebc-042d12a8ea26" created="2.8.2" activeEnvironment="Default environment" name="Project 1" resourceRoot="" updated="2.8.2 2019-08-27T17:04:01Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="680ea18a-a703-44d6-90bb-e869fa350327" name="Api Documentation" type="rest_ex" wadlVersion="https://swagger.io/swagger2/specification" definitionUrl="/Users/mohammad/Downloads/api-docs.json" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>Api Documentation</con:description>
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart="file:/Users/mohammad/Downloads/api-docs.json">
+      <con:part>
+        <con:url>file:/Users/mohammad/Downloads/api-docs.json</con:url>
+        <con:content>{"swagger":"2.0","info":{"description":"Api Documentation","version":"1.0","title":"Api Documentation","termsOfService":"urn:tos","contact":{},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0"}},"host":"localhost:8090","basePath":"/","tags":[{"name":"Employee Entity","description":"$ Proxy 126"},{"name":"basic-error-controller","description":"Basic Error Controller"},{"name":"home-controller","description":"Home Controller"},{"name":"operation-handler","description":"Operation Handler"},{"name":"profile-controller","description":"Profile Controller"},{"name":"web-mvc-links-handler","description":"Web Mvc Links Handler"}],"paths":{"/":{"get":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingGET","produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"head":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingHEAD","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"post":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingPOST","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"put":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingPUT","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"delete":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingDELETE","produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"options":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingOPTIONS","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"patch":{"tags":["home-controller"],"summary":"index","operationId":"indexUsingPATCH","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"string"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false}},"/actuator":{"get":{"tags":["web-mvc-links-handler"],"summary":"links","operationId":"linksUsingGET","produces":["application/json","application/vnd.spring-boot.actuator.v2+json"],"responses":{"200":{"description":"OK","schema":{"type":"object","additionalProperties":{"type":"object","additionalProperties":{"$ref":"#/definitions/Link_1"}}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/actuator/health":{"get":{"tags":["operation-handler"],"summary":"handle","operationId":"handleUsingGET","produces":["application/json","application/vnd.spring-boot.actuator.v2+json"],"parameters":[{"in":"body","name":"body","description":"body","required":false,"schema":{"type":"object","additionalProperties":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"type":"object"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/actuator/health/{component}":{"get":{"tags":["operation-handler"],"summary":"handle","operationId":"handleUsingGET_1","produces":["application/json","application/vnd.spring-boot.actuator.v2+json"],"parameters":[{"in":"body","name":"body","description":"body","required":false,"schema":{"type":"object","additionalProperties":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"type":"object"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/actuator/health/{component}/{instance}":{"get":{"tags":["operation-handler"],"summary":"handle","operationId":"handleUsingGET_2","produces":["application/json","application/vnd.spring-boot.actuator.v2+json"],"parameters":[{"in":"body","name":"body","description":"body","required":false,"schema":{"type":"object","additionalProperties":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"type":"object"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/actuator/info":{"get":{"tags":["operation-handler"],"summary":"handle","operationId":"handleUsingGET_3","produces":["application/json","application/vnd.spring-boot.actuator.v2+json"],"parameters":[{"in":"body","name":"body","description":"body","required":false,"schema":{"type":"object","additionalProperties":{"type":"string"}}}],"responses":{"200":{"description":"OK","schema":{"type":"object"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/api/employees":{"get":{"tags":["Employee Entity"],"summary":"findAllEmployee","operationId":"findAllEmployeeUsingGET","produces":["application/json","application/hal+json","text/uri-list","application/x-spring-data-compact+json"],"parameters":[{"name":"page","in":"query","description":"page","required":false,"type":"integer","format":"int32"},{"name":"size","in":"query","description":"size","required":false,"type":"integer","format":"int32"},{"name":"sort","in":"query","description":"sort","required":false,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Resources«Employee»"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"post":{"tags":["Employee Entity"],"summary":"saveEmployee","operationId":"saveEmployeeUsingPOST","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"body","description":"body","required":true,"schema":{"$ref":"#/definitions/Employee"}}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Resource«Employee»"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false}},"/api/employees/{id}":{"get":{"tags":["Employee Entity"],"summary":"findByIdEmployee","operationId":"findByIdEmployeeUsingGET","produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Resource«Employee»"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"put":{"tags":["Employee Entity"],"summary":"saveEmployee","operationId":"saveEmployeeUsingPUT","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"body","description":"body","required":true,"schema":{"$ref":"#/definitions/Employee"}},{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Resource«Employee»"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"delete":{"tags":["Employee Entity"],"summary":"deleteEmployee","operationId":"deleteEmployeeUsingDELETE","produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK"},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"patch":{"tags":["Employee Entity"],"summary":"saveEmployee","operationId":"saveEmployeeUsingPATCH","consumes":["application/json"],"produces":["*/*"],"parameters":[{"in":"body","name":"body","description":"body","required":true,"schema":{"$ref":"#/definitions/Employee"}},{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Resource«Employee»"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false}},"/api/profile":{"get":{"tags":["profile-controller"],"summary":"listAllFormsOfMetadata","operationId":"listAllFormsOfMetadataUsingGET","produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ResourceSupport"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"options":{"tags":["profile-controller"],"summary":"profileOptions","operationId":"profileOptionsUsingOPTIONS","consumes":["application/json"],"produces":["*/*"],"responses":{"200":{"description":"OK","schema":{"type":"object"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false}},"/error":{"get":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingGET","produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"head":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingHEAD","consumes":["application/json"],"produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"post":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingPOST","consumes":["application/json"],"produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"put":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingPUT","consumes":["application/json"],"produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"201":{"description":"Created"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}},"deprecated":false},"delete":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingDELETE","produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"options":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingOPTIONS","consumes":["application/json"],"produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false},"patch":{"tags":["basic-error-controller"],"summary":"errorHtml","operationId":"errorHtmlUsingPATCH","consumes":["application/json"],"produces":["text/html"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/ModelAndView"}},"204":{"description":"No Content"},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"}},"deprecated":false}}},"definitions":{"EmbeddedCollection«Employee»":{"type":"object","required":["employees"],"discriminator":"Embedded collection of Employee","properties":{"employees":{"type":"array","description":"Resource collection","items":{"$ref":"#/definitions/Employee"}}},"title":"EmbeddedCollection«Employee»","xml":{"name":"content","wrapped":true},"description":"Embedded collection of Employee"},"Employee":{"type":"object","properties":{"description":{"type":"string"},"firstName":{"type":"string"},"id":{"type":"integer","format":"int64"},"lastName":{"type":"string"},"manager":{"$ref":"#/definitions/Manager"}},"title":"Employee"},"Link":{"type":"object","properties":{"deprecation":{"type":"string","xml":{"name":"deprecation","attribute":true,"wrapped":false}},"href":{"type":"string","xml":{"name":"href","attribute":true,"wrapped":false}},"hreflang":{"type":"string","xml":{"name":"hreflang","attribute":true,"wrapped":false}},"media":{"type":"string","xml":{"name":"media","attribute":true,"wrapped":false}},"rel":{"type":"string","xml":{"name":"rel","attribute":true,"wrapped":false}},"templated":{"type":"boolean"},"title":{"type":"string","xml":{"name":"title","attribute":true,"wrapped":false}},"type":{"type":"string","xml":{"name":"type","attribute":true,"wrapped":false}}},"title":"Link","xml":{"name":"link","namespace":"http://www.w3.org/2005/Atom","attribute":false,"wrapped":false}},"Link_1":{"type":"object","properties":{"href":{"type":"string"},"templated":{"type":"boolean"}},"title":"Link_1"},"Manager":{"type":"object","properties":{"employees":{"type":"array","items":{"$ref":"#/definitions/Employee"}},"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"roles":{"type":"array","items":{"type":"string"}}},"title":"Manager"},"Map«string,Link»":{"type":"object","title":"Map«string,Link»","additionalProperties":{"$ref":"#/definitions/Link"}},"ModelAndView":{"type":"object","properties":{"empty":{"type":"boolean"},"model":{"type":"object"},"modelMap":{"type":"object","additionalProperties":{"type":"object"}},"reference":{"type":"boolean"},"status":{"type":"string","enum":["CONTINUE","SWITCHING_PROTOCOLS","PROCESSING","CHECKPOINT","OK","CREATED","ACCEPTED","NON_AUTHORITATIVE_INFORMATION","NO_CONTENT","RESET_CONTENT","PARTIAL_CONTENT","MULTI_STATUS","ALREADY_REPORTED","IM_USED","MULTIPLE_CHOICES","MOVED_PERMANENTLY","FOUND","MOVED_TEMPORARILY","SEE_OTHER","NOT_MODIFIED","USE_PROXY","TEMPORARY_REDIRECT","PERMANENT_REDIRECT","BAD_REQUEST","UNAUTHORIZED","PAYMENT_REQUIRED","FORBIDDEN","NOT_FOUND","METHOD_NOT_ALLOWED","NOT_ACCEPTABLE","PROXY_AUTHENTICATION_REQUIRED","REQUEST_TIMEOUT","CONFLICT","GONE","LENGTH_REQUIRED","PRECONDITION_FAILED","PAYLOAD_TOO_LARGE","REQUEST_ENTITY_TOO_LARGE","URI_TOO_LONG","REQUEST_URI_TOO_LONG","UNSUPPORTED_MEDIA_TYPE","REQUESTED_RANGE_NOT_SATISFIABLE","EXPECTATION_FAILED","I_AM_A_TEAPOT","INSUFFICIENT_SPACE_ON_RESOURCE","METHOD_FAILURE","DESTINATION_LOCKED","UNPROCESSABLE_ENTITY","LOCKED","FAILED_DEPENDENCY","UPGRADE_REQUIRED","PRECONDITION_REQUIRED","TOO_MANY_REQUESTS","REQUEST_HEADER_FIELDS_TOO_LARGE","UNAVAILABLE_FOR_LEGAL_REASONS","INTERNAL_SERVER_ERROR","NOT_IMPLEMENTED","BAD_GATEWAY","SERVICE_UNAVAILABLE","GATEWAY_TIMEOUT","HTTP_VERSION_NOT_SUPPORTED","VARIANT_ALSO_NEGOTIATES","INSUFFICIENT_STORAGE","LOOP_DETECTED","BANDWIDTH_LIMIT_EXCEEDED","NOT_EXTENDED","NETWORK_AUTHENTICATION_REQUIRED"]},"view":{"$ref":"#/definitions/View"},"viewName":{"type":"string"}},"title":"ModelAndView"},"ResourceSupport":{"type":"object","properties":{"links":{"type":"array","xml":{"name":"link","namespace":"http://www.w3.org/2005/Atom","attribute":false,"wrapped":false},"items":{"$ref":"#/definitions/Link"}}},"title":"ResourceSupport"},"Resources«Employee»":{"type":"object","required":["_embedded","_links"],"discriminator":"Resources of Employee","properties":{"_embedded":{"$ref":"#/definitions/EmbeddedCollection«Employee»"},"_links":{"type":"object","description":"Link collection","additionalProperties":{"$ref":"#/definitions/Link"}}},"title":"Resources«Employee»","xml":{"name":"entities","attribute":false,"wrapped":false},"description":"Resources of Employee"},"Resource«Employee»":{"type":"object","properties":{"description":{"type":"string"},"firstName":{"type":"string"},"id":{"type":"integer","format":"int64"},"lastName":{"type":"string"},"links":{"type":"array","xml":{"name":"link","namespace":"http://www.w3.org/2005/Atom","attribute":false,"wrapped":false},"items":{"$ref":"#/definitions/Link"}},"manager":{"$ref":"#/definitions/Manager"}},"title":"Resource«Employee»","xml":{"name":"Resource«Employee»","attribute":false,"wrapped":false}},"View":{"type":"object","properties":{"contentType":{"type":"string"}},"title":"View"}}}</con:content>
+        <con:type>https://swagger.io/swagger2/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8090</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/api/employees" path="/api/employees" id="e1131e2a-0cca-42d0-82a9-e1282b113806">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="findAllEmployeeUsingGET" id="0f15bd59-b206-4e0c-a679-51f3fc177fe3" method="GET">
+        <con:description>findAllEmployee</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>page</con:name>
+            <con:style>QUERY</con:style>
+            <con:dataType>integer</con:dataType>
+            <con:description>page</con:description>
+          </con:parameter>
+          <con:parameter>
+            <con:name>size</con:name>
+            <con:style>QUERY</con:style>
+            <con:dataType>integer</con:dataType>
+            <con:description>size</con:description>
+          </con:parameter>
+          <con:parameter>
+            <con:name>sort</con:name>
+            <con:style>QUERY</con:style>
+            <con:description>sort</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent>{
+  "_embedded" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : {
+        "employees" : [ { } ],
+        "id" : 0,
+        "name" : "string",
+        "roles" : [ "string" ]
+      }
+    } ]
+  },
+  "_links" : {
+    "additionalProp1" : {
+      "deprecation" : "string",
+      "href" : "string",
+      "hreflang" : "string",
+      "media" : "string",
+      "rel" : "string",
+      "templated" : true,
+      "title" : "string",
+      "type" : "string"
+    },
+    "additionalProp2" : {
+      "deprecation" : "string",
+      "href" : "string",
+      "hreflang" : "string",
+      "media" : "string",
+      "rel" : "string",
+      "templated" : true,
+      "title" : "string",
+      "type" : "string"
+    },
+    "additionalProp3" : {
+      "deprecation" : "string",
+      "href" : "string",
+      "hreflang" : "string",
+      "media" : "string",
+      "rel" : "string",
+      "templated" : true,
+      "title" : "string",
+      "type" : "string"
+    }
+  }
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/uri-list</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/x-spring-data-compact+json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/uri-list</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/x-spring-data-compact+json</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/uri-list</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/x-spring-data-compact+json</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/hal+json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>text/uri-list</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/x-spring-data-compact+json</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="481d69bd-bef4-415a-b2c7-0ce89f004739" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="saveEmployeeUsingPOST" id="fecb87a0-2a96-4812-b26f-fb5c1d1adcc6" method="POST">
+        <con:description>saveEmployee</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="0c1d23b6-757c-4a20-94b5-9d7f15ac4136" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:request>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:request>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/api/employees/{id}" path="/api/employees/{id}" id="f512afc1-7bee-49f2-8e81-366ea89510e1">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter required="true">
+          <con:name>id</con:name>
+          <con:style>TEMPLATE</con:style>
+          <con:dataType>integer</con:dataType>
+          <con:description>id</con:description>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="findByIdEmployeeUsingGET" id="8945b91b-70ab-41d8-8340-b27273a7569f" method="GET">
+        <con:description>findByIdEmployee</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="7dc99292-c66f-494a-bfe0-4997cf67eebd" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="saveEmployeeUsingPUT" id="b1568091-c9fe-4ed3-ad4a-c4f8deb8b59f" method="PUT">
+        <con:description>saveEmployee</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>404</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="6c7331b3-8703-42b7-b2ed-6c18d7a2cc94" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:request>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:request>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="deleteEmployeeUsingDELETE" id="ea2261a6-9115-401a-8c60-d96d3f7667ce" method="DELETE">
+        <con:description>deleteEmployee</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>204</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="812ce2c3-44d8-4264-a522-6e233d4f0363" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="saveEmployeeUsingPATCH" id="97f195c0-0f90-4344-a7be-63488fc824fb" method="PATCH">
+        <con:description>saveEmployee</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:sampleContent xsi:nil="true"/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>204</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>*/*</con:mediaType>
+          <con:status>403</con:status>
+          <con:params/>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="466aaf18-2aab-4a3c-8198-c8ba7d10ffef" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:request>{
+  "description" : "string",
+  "firstName" : "string",
+  "id" : 0,
+  "lastName" : "string",
+  "manager" : {
+    "employees" : [ {
+      "description" : "string",
+      "firstName" : "string",
+      "id" : 0,
+      "lastName" : "string",
+      "manager" : { }
+    } ],
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:request>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="769a5790-c4f4-449f-94ea-5c2cf4974929" name="Project 1 TestSuite 1">
+    <con:settings/>
+    <con:savedRecentRuns>1</con:savedRecentRuns>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="d53c681e-e4cb-4f07-b3a2-fe2989b347d1" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0">
+      <con:settings/>
+      <con:savedRecentRuns>1</con:savedRecentRuns>
+      <con:testStep type="restrequest" name="REST Request" id="6b86dff5-d2a4-46d4-990a-5a9c6c201e32">
+        <con:settings/>
+        <con:config service="Api Documentation" resourcePath="/api/employees" methodName="saveEmployeeUsingPOST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="REST Request" id="0c1d23b6-757c-4a20-94b5-9d7f15ac4136" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8090</con:endpoint>
+            <con:request>{
+  "description" : "string",
+  "firstName" : "string",
+  "lastName" : "string",
+  "manager" : {
+    "id" : 0,
+    "name" : "string",
+    "roles" : [ "string" ]
+  }
+}</con:request>
+            <con:originalUri>http://localhost/api/employees</con:originalUri>
+            <con:assertion type="Response SLA Assertion" id="ada3b8a5-7df6-4199-9b16-8c5f1d79ba4e" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" id="3687cfbf-4075-4b80-8c16-d64670864f6b" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:username>greg</con:username>
+              <con:password>turnquist</con:password>
+              <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+              <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="groovy" name="Groovy Script" id="d59ae4ff-3513-4851-85e2-a85d11bd8e8e">
+        <con:settings/>
+        <con:config>
+          <script>def step = testRunner.testCase.getTestStepByName("REST Request")
+
+def location = step.httpRequest.response.responseHeaders["Location"][0]
+
+def index = location.lastIndexOf('/')
+
+if (index > 0) {
+	testRunner.testCase.setPropertyValue( "extractEmployeeId",  location.substring(index + 1))
+}</script>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="REST Request 2" id="8a86c62a-2fff-4557-9ba8-1d7bf9720b6e">
+        <con:settings/>
+        <con:config service="Api Documentation" resourcePath="/api/employees/{id}" methodName="deleteEmployeeUsingDELETE" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="REST Request 2" id="812ce2c3-44d8-4264-a522-6e233d4f0363" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8090</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/api/employees/330004</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="9e533a25-6699-4789-ae08-b6bbd57bace3" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="8989f8aa-1a99-4897-a81b-a7975d92eb26" name="Response SLA">
+              <con:configuration>
+                <SLA>200</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:username>greg</con:username>
+              <con:password>turnquist</con:password>
+              <con:selectedAuthProfile>Basic</con:selectedAuthProfile>
+              <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+              <con:authType>Global HTTP Settings</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <entry key="id" value="${#TestCase#extractEmployeeId}" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties>
+        <con:property>
+          <con:name>extractEmployeeId</con:name>
+          <con:value>330006</con:value>
+        </con:property>
+      </con:properties>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:reporting/>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// def token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// def token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// def headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+</con:soapui-project>
