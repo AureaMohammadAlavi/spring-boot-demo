@@ -3,7 +3,7 @@ pipeline {
      stages {
          stage('Deploy - Staging') {
              when {
-                 branch 'master'
+                 branch '*'
              }
              steps {
                  echo 'Deploying to Staging from master...'
