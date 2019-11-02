@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-30T15:32:41 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIGraphicalSummary" pageWidth="550" pageHeight="300" columnWidth="550" leftMargin="0"
+              rightMargin="0" topMargin="0" bottomMargin="0" uuid="7d5c45ec-ab52-4678-9f39-388727cb7de6">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <field name="title" class="java.lang.String"/>
+    <field name="image" class="java.awt.Image"/>
+    <field name="param1Name" class="java.lang.String"/>
+    <field name="param1Value" class="java.lang.String"/>
+    <field name="param2Name" class="java.lang.String"/>
+    <field name="param2Value" class="java.lang.String"/>
+    <field name="param3Name" class="java.lang.String"/>
+    <field name="param3Value" class="java.lang.String"/>
+    <field name="metricsTitle" class="java.lang.String"/>
+    <field name="hintText" class="java.lang.String"/>
+    <detail>
+        <band height="120" splitType="Stretch">
+            <textField>
+                <reportElement style="Normal" x="18" y="35" width="170" height="23"
+                               uuid="52b8c679-6f03-4e82-a96c-52659dcb2ce4"/>
+                <textFieldExpression><![CDATA[$F{param1Name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="190" y="35" width="60" height="23"
+                               uuid="48f1517e-3615-4c95-979d-6eb9fb08e5ae"/>
+                <textFieldExpression><![CDATA[$F{param1Value}+" "+$F{metricsTitle}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="18" y="58" width="170" height="23"
+                               uuid="fd5e588f-cf61-4696-8a93-77a4b71919f0"/>
+                <textFieldExpression><![CDATA[$F{param2Name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="190" y="58" width="60" height="23"
+                               uuid="71d14045-5546-49d2-9629-29dd8326e586"/>
+                <textFieldExpression><![CDATA[$F{param2Value}+" "+$F{metricsTitle}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="18" y="81" width="170" height="23"
+                               uuid="eab427c1-9bdb-421e-b030-9bdc9c0ba424"/>
+                <textFieldExpression><![CDATA[$F{param3Name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="190" y="81" width="60" height="23"
+                               uuid="3fd3e1b1-dc29-41dc-b50a-f5ac5efaa518"/>
+                <textFieldExpression><![CDATA[$F{param3Value}+" "+$F{metricsTitle}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="RetainShape">
+                <reportElement x="250" y="5" width="310" height="99" uuid="4e638ff5-1a08-4351-8246-7b1881f5c892"/>
+                <imageExpression><![CDATA[$F{image}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement style="InnerHeader" x="0" y="5" width="250" height="23"
+                               uuid="8be73e55-e907-4ef3-824a-ed153ec4758e"/>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Normal" x="18" y="105" width="521" height="15"
+                               uuid="34756b09-5464-4a16-b02d-f0bdc6bc035f"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{hintText}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

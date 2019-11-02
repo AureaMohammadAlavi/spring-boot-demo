@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-30T16:14:54 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="LoadUIHelpReport" language="groovy" pageWidth="550" pageHeight="842" columnWidth="550"
+			  leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1a4fc463-a7a8-48b8-b146-ff13a5482d72">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["../../styles.jrtx"]]></template>
+	<field name="title" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<columnHeader>
+		<band height="30" splitType="Prevent">
+			<staticText>
+				<reportElement style="SmallHeader" x="0" y="0" width="550" height="23"
+							   uuid="92292aa4-6930-408c-8397-1777b8c9f942"/>
+				<text><![CDATA[Terms Used in This Report]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="InnerHeader" x="0" y="10" width="550" height="14"
+							   uuid="4c5310a0-1a63-4c3f-a6a8-48e425b12ff6"/>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Normal" x="0" y="28" width="550" height="12"
+							   uuid="7b6a752f-5325-4844-a2e1-d1a716d124ab"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

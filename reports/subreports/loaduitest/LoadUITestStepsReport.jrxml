@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUITestStepsReport" language="groovy" pageWidth="535" pageHeight="842" columnWidth="535"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8f65c8e7-bd6a-4154-9a60-1a32dd7e75ce">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+	<parameter name="TestCaseName" class="java.lang.String">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Test Case Name"/>
+        <parameterDescription><![CDATA[The name of the test case]]></parameterDescription>
+	</parameter>
+	<field name="testStepName" class="java.lang.String"/>
+    <field name="minTimeTaken" class="java.lang.String"/>
+    <field name="maxTimeTaken" class="java.lang.String"/>
+    <field name="medianTimeTaken" class="java.lang.String"/>
+    <field name="testLastTime" class="java.lang.String"/>
+    <field name="transactionCount" class="java.lang.String"/>
+    <field name="tPS" class="java.lang.String"/>
+    <field name="failedAssertionsCount" class="java.lang.String"/>
+    <field name="failedRatio" class="java.lang.String"/>
+	<columnHeader>
+		<band height="48">
+			<textField>
+                <reportElement positionType="Float" x="0" y="0" width="535" height="20"
+                               uuid="66b6fafb-d3b5-4649-a1fe-126903099778"/>
+				<box bottomPadding="0">
+					<pen lineStyle="Double"/>
+					<topPen lineStyle="Double"/>
+					<leftPen lineStyle="Double"/>
+					<bottomPen lineStyle="Double"/>
+					<rightPen lineStyle="Double"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{TestCaseName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+                <reportElement style="ColumnHeader" x="0" y="30" width="95" height="14"
+                               uuid="933479e5-d89c-4241-91c2-d870836274ae"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Test step]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="95" y="30" width="50" height="14"
+                               uuid="9444529e-629e-4dbf-b5a0-89f6ba50e559"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Min (ms)]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="145" y="30" width="55" height="14"
+                               uuid="84d870f6-6bbc-41c1-893f-096847095e61"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Max (ms)]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="200" y="30" width="75" height="14"
+                               uuid="aeac75ed-461b-4d8d-9cf5-bd6747068ce2"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Median (ms)]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="275" y="30" width="60" height="14"
+                               uuid="a4f865b0-243d-436d-89ac-825707ba23b3"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Last (ms)]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="335" y="30" width="50" height="14"
+                               uuid="9241c01d-0d8f-4d47-99ad-c3c37297c1c8"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Count]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="385" y="30" width="50" height="14"
+                               uuid="5de49b1d-3f28-42aa-a592-7ef691b479fb"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[TPS]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="435" y="30" width="50" height="14"
+                               uuid="cd88d0a2-281c-4624-bede-0865c91f8ea6"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Err]]></text>
+			</staticText>
+			<staticText>
+                <reportElement style="ColumnHeader" x="485" y="30" width="50" height="14"
+                               uuid="df056429-4e54-4cf3-bfc7-098342367964"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Err %]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+        <band height="20" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+                <reportElement x="0" y="0" width="95" height="20" uuid="409b314a-b757-4a0c-b76b-a0be42f3ddd2"/>
+                <textFieldExpression><![CDATA[$F{testStepName}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="95" y="0" width="50" height="20" uuid="2ee23a1b-ef2f-4d0a-93d3-0c788dbcb8bd"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{minTimeTaken}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="145" y="0" width="55" height="20" uuid="b280c4b8-01d6-4222-ae30-7da823966f27"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{maxTimeTaken}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="200" y="0" width="75" height="20" uuid="2b308fad-67e1-44b9-8b27-7a591ebed84d"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{medianTimeTaken}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+                <reportElement x="275" y="0" width="60" height="20" uuid="8aef3b1e-945c-4840-be52-d3946bebf90a"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{testLastTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="335" y="0" width="50" height="20" uuid="9e246844-b644-4fd8-b8ce-8c2447cf5e48"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{transactionCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="385" y="0" width="50" height="20" uuid="3e5cfa45-5630-43b3-9617-48748ab85ddf"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{tPS}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="435" y="0" width="50" height="20" uuid="aa5d18cf-c715-4bbe-b6ca-91554766f474"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{failedAssertionsCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+                <reportElement x="485" y="0" width="50" height="20" uuid="22eafb41-ae82-4f30-b7bf-26c5ed837913"/>
+				<textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{failedRatio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-08-29T13:50:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="LoadUIScenarioResultsReport" language="groovy" pageWidth="550" pageHeight="842" columnWidth="550"
+			  leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e4dbb8ba-bdc7-4d88-9d2e-f6cf3f33187f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["../../styles.jrtx"]]></template>
+	<parameter name="FlowLayout" class="java.lang.Boolean">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Flow Layout"/>
+		<parameterDescription><![CDATA[Chooses a flow layout for the report]]></parameterDescription>
+	</parameter>
+	<parameter name="TestResults" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Test Results"/>
+		<parameterDescription><![CDATA[The test results of the scenario]]></parameterDescription>
+	</parameter>
+	<parameter name="GraphicalData" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Scenario summary"/>
+		<parameterDescription><![CDATA[Summary data for scenario execution]]></parameterDescription>
+	</parameter>
+	<parameter name="LoadTargets" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Load Target Metrics"/>
+		<parameterDescription><![CDATA[The metrics of the load targets]]></parameterDescription>
+	</parameter>
+	<parameter name="LoadTargetsContinue" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Load Target Metrics Continue"/>
+		<parameterDescription><![CDATA[The metrics of the load targets (continue)]]></parameterDescription>
+	</parameter>
+	<parameter name="TopTestCases" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Top 5 Test Case Executions"/>
+		<parameterDescription><![CDATA[The top 5 test cases of the test]]></parameterDescription>
+	</parameter>
+	<parameter name="TopTestSteps" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Top 5 Test Step Executions"/>
+		<parameterDescription><![CDATA[The top 5 test steps of the test]]></parameterDescription>
+	</parameter>
+	<parameter name="BottomTestCases" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Bottom 5 Test Case Executions"/>
+		<parameterDescription><![CDATA[The bottom 5 test cases of the test]]></parameterDescription>
+	</parameter>
+	<parameter name="BottomTestSteps" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Bottom 5 Test Step Executions"/>
+		<parameterDescription><![CDATA[The bottom 5 test steps of the test]]></parameterDescription>
+	</parameter>
+	<parameter name="Top5Dispersion" class="net.sf.jasperreports.engine.JRDataSource">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Top and bottom cases dispersion"/>
+		<parameterDescription><![CDATA[Dispersion of the test cases]]></parameterDescription>
+	</parameter>
+	<detail>
+		<band height="320">
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="73111260-6a57-468c-88db-8e722c2df51d"/>
+				<subreportParameter name="Type">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{TestResults}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIPropReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="40" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="734257fd-95b3-49c4-a716-617c178e9a32"/>
+				<dataSourceExpression><![CDATA[$P{GraphicalData}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIGraphicalSummary"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="80" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="677d4cfc-0723-4537-9037-d10c10581b74"/>
+				<dataSourceExpression><![CDATA[$P{LoadTargets}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUILoadTargetsReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="120" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="4ab52c49-10d2-437b-a7dc-553a6cee257f"/>
+				<dataSourceExpression><![CDATA[$P{LoadTargetsContinue}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUILoadTargetsContinueReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="160" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="abf5d47b-494a-4607-a39a-a48f823c3af7"/>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression>
+						<![CDATA["Top 5 Test Case Executions"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{TopTestCases}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="190" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="68b0df95-c8e8-444e-9e3b-6d6c95b3b2fd"/>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression>
+						<![CDATA["Bottom 5 Test Case Executions"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{BottomTestCases}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="220" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="ea150453-4856-4d37-a41b-963d9fd2ad11"/>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression>
+						<![CDATA["Top 5 Test Step Executions"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{TopTestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="250" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="77dd78f0-a9e1-43d5-8cad-10ca295c3480"/>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression>
+						<![CDATA["Bottom 5 Test Step Executions"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{BottomTestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="288" width="550" height="30"
+							   isRemoveLineWhenBlank="true" uuid="ada742ee-8ff5-4943-a7b8-7fe4de44ad53"/>
+				<dataSourceExpression><![CDATA[$P{Top5Dispersion}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIGraph"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

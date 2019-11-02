@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-06-05T09:01:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIPropReport" language="groovy" pageWidth="550" pageHeight="842"
+              whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="0" rightMargin="0" topMargin="0"
+              bottomMargin="0" uuid="5ec62473-0575-4ec6-95e8-e617c442ee7e">
+    <property name="ireport.encoding" value="UTF-8"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <parameter name="Type" class="java.lang.String" isForPrompting="false"/>
+    <parameter name="Flow" class="java.lang.Boolean" isForPrompting="false">
+        <property name="interactive" value="true"/>
+        <parameterDescription>
+            <![CDATA[Creates a flow-based layout instead of a page-based layout]]></parameterDescription>
+    </parameter>
+    <parameter name="Show Details" class="java.lang.Boolean" isForPrompting="false">
+        <property name="interactive" value="true"/>
+    </parameter>
+    <parameter name="Comment" class="java.lang.String" isForPrompting="false">
+        <property name="interactive" value="true"/>
+    </parameter>
+    <field name="name" class="java.lang.String"/>
+    <field name="value" class="java.lang.String"/>
+    <field name="category" class="java.lang.String"/>
+    <field name="icon" class="java.lang.String"/>
+    <columnHeader>
+        <band height="30">
+            <textField>
+                <reportElement style="SmallHeader" x="0" y="0" width="550" height="30" isRemoveLineWhenBlank="true"
+                               uuid="163befde-a315-40e7-8dc0-c98e2d4128ed">
+                    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                    <printWhenExpression><![CDATA[$P{Type} != null]]></printWhenExpression>
+                </reportElement>
+                <textFieldExpression><![CDATA[$P{Type}]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="33">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="300" y="17" width="252" height="14" uuid="e73d0f57-ca68-4f26-a48e-87af11770809"/>
+                <textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="ColumnHeader" isPrintRepeatedValues="false" x="0" y="0" width="552" height="14"
+                               isRemoveLineWhenBlank="true" uuid="561b582a-66fe-4621-914b-5f451e9376e0">
+                    <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+                </reportElement>
+                <box bottomPadding="0">
+                    <pen lineStyle="Double"/>
+                    <topPen lineStyle="Double"/>
+                    <leftPen lineStyle="Double"/>
+                    <bottomPen lineStyle="Double"/>
+                    <rightPen lineStyle="Double"/>
+                </box>
+                <textElement verticalAlignment="Bottom"/>
+                <textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="20" y="17" width="270" height="14" uuid="fdeafeaa-8490-4faf-b2f1-51539e9c0717"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="RealSize" isUsingCache="true" onErrorType="Blank">
+                <reportElement x="0" y="17" width="16" height="16" uuid="78407d36-8530-4735-b0c4-e76205c69c11"/>
+                <imageExpression><![CDATA["logo:" + $F{icon}]]></imageExpression>
+            </image>
+        </band>
+    </detail>
+</jasperReport>

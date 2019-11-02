@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUILoadTargetsReport" language="groovy" pageWidth="535" pageHeight="842" columnWidth="535"
+              leftMargin="0" rightMargin="0"
+              topMargin="0" bottomMargin="0">
+    <template>"../../styles.jrtx"</template>
+    <field name="targetName" class="java.lang.String"/>
+    <field name="requestsCount" class="java.lang.String"/>
+    <field name="minTime" class="java.lang.String"/>
+    <field name="maxTime" class="java.lang.String"/>
+    <field name="medianTime" class="java.lang.String"/>
+    <field name="standardDeviation" class="java.lang.String"/>
+    <field name="failuresCount" class="java.lang.String"/>
+    <field name="failuresRatio" class="java.lang.String"/>
+    <columnHeader>
+        <band height="65">
+            <staticText>
+                <reportElement style="SmallHeader" x="0" y="0" width="535" height="23"/>
+                <box bottomPadding="0">
+                    <pen lineStyle="Double"/>
+                    <topPen lineStyle="Double"/>
+                    <leftPen lineStyle="Double"/>
+                    <bottomPen lineStyle="Double"/>
+                    <rightPen lineStyle="Double"/>
+                </box>
+                <textElement/>
+                <text>Targets Metrics</text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="0" y="33" width="175" height="28"/>
+                <textFieldExpression class="java.lang.String">"\nTarget\n"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="175" y="33" width="60" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">"\nRequests\n"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="235" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">" Min\n time\n (ms)"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="285" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">" Max\n time\n (ms)"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="335" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">" Median\n time\n (ms)"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="385" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">" Std\n dev\n (ms)"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="435" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">"\n Err\n"</textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="485" y="33" width="50" height="28"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression class="java.lang.String">"\n Err %\n"</textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Prevent">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="0" y="0" width="170" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">$F{targetName}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="175" y="0" width="60" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{requestsCount}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="235" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{minTime}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="285" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{maxTime}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="335" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{medianTime}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="385" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{standardDeviation}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="435" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{failuresCount}</textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="485" y="0" width="50" height="20"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression class="java.lang.String">$F{failuresRatio}</textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

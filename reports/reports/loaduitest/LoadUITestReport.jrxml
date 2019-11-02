@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2018-08-29T13:55:28 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="LoadUITestReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535"
+			  leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30"
+			  uuid="4798a442-289c-41a8-ae46-232445b80ff1">
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<template><![CDATA["../../styles.jrtx"]]></template>
+	<parameter name="IncludeOverview" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Test Overview"/>
+		<parameterDescription>
+			<![CDATA[Includes the LoadUI test overview information in the report]]></parameterDescription>
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeResults" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Latest Results"/>
+		<parameterDescription><![CDATA[Includes the latest LoadUI test results in the report]]></parameterDescription>
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeScenarioResults" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Results for each Scenario"/>
+		<parameterDescription>
+			<![CDATA[Includes the latest LoadUI test results for each scenario]]></parameterDescription>
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeStatistics" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Statistics"/>
+		<parameterDescription><![CDATA[Includes the latest LoadUI statistic tables and charts]]></parameterDescription>
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeTestStepsHistory" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Test Steps History"/>
+		<parameterDescription><![CDATA[Includes the Test Steps statistics]]></parameterDescription>
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeStatisticHistory" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include Statistic History"/>
+		<parameterDescription><![CDATA[Includes the statistics]]></parameterDescription>
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IncludeHelp" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Include LoadUI terms"/>
+		<parameterDescription><![CDATA[Includes LoadUI terms description into report]]></parameterDescription>
+		<defaultValueExpression><![CDATA[true]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FlowLayout" class="java.lang.Boolean">
+		<property name="interactive" value="true"/>
+		<property name="label" value="Flow Layout"/>
+		<parameterDescription><![CDATA[Chooses a flow layout for the report]]></parameterDescription>
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["../../logos/header_logo.png"]]></defaultValueExpression>
+	</parameter>
+	<pageHeader>
+		<band height="51">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}]]></printWhenExpression>
+			<image scaleImage="RetainShape" hAlign="Right" onErrorType="Blank">
+				<reportElement x="0" y="0" width="535" height="41" uuid="f2489083-0e02-4279-a31d-257c8bf51bba"/>
+				<imageExpression><![CDATA[$P{HeaderLogo}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40">
+			<printWhenExpression><![CDATA[$V{PAGE_NUMBER} == 1 || $P{FlowLayout}]]></printWhenExpression>
+			<textField>
+				<reportElement style="MediumHeader" x="0" y="0" width="535" height="40"
+							   uuid="efb4db0c-2ef0-4d78-bacb-1cb8682ccbd7"/>
+				<textFieldExpression>
+					<![CDATA["Load Test Results for ${=loadUITest.nameForReport}"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="400">
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="305fbc39-67ff-45d3-bc03-44d1b951d15d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeOverview}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="IncludeOverview">
+					<subreportParameterExpression><![CDATA[$P{IncludeOverview}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Type">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUITestOverview}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIPropReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="23" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="0029fa73-df8e-43c1-9b65-49f233cc5be9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeOverview}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUITestDescription}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIScenarioDescription"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="46" width="534" height="1"
+							   uuid="3271d4de-feea-4c86-8b0d-cc4073aaac86">
+					<printWhenExpression><![CDATA[$P{IncludeOverview} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="50" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="c6c1829c-4c18-4a34-8f0c-52e72028be01">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="Type">
+					<subreportParameterExpression><![CDATA["Test Execution"]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUITestResults}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:MetricsReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="72" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="46c3151f-9aa3-4f34-92ca-9406604e3aa6">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUIProjectGraphicalSummary}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIGraphicalSummary"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="94" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="0bf489f3-e8da-4037-b878-fd3f80a2c1fc">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIScenariosSummary}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIScenariosSummaryReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="118" width="535" height="1"
+							   uuid="ac442c3d-c1ff-48d7-b660-0ccfaa77e817">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="120" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="ae48307b-79b5-4e35-8f8d-6ce2ca83870d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUIOverviewChart}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:ChartsReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="140" width="535" height="19"
+							   isRemoveLineWhenBlank="true" uuid="3263bca9-f5cf-443f-ba16-7571ac5a315e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUITestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUITestCasesTestStepsReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="161" width="536" height="1"
+							   uuid="03327842-e244-45e4-b850-040e8e40a442">
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="163" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="79b7c71b-fae0-48b5-b3e5-8d3baeb6c111">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression><![CDATA["Top 5 Test Cases"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUITopTestCases}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="185" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="4a243e5e-8165-4582-a77d-c163d4b4c5a5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression><![CDATA["Bottom 5 Test Cases"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIBottomTestCases}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="-1" y="208" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="dc1e21c4-50cc-467e-9ca9-9aa07978433d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression><![CDATA["Top 5 Test Steps"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUITopTestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="231" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="c8a014c8-e297-46db-9c10-a72a7689be73">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="ReportName">
+					<subreportParameterExpression><![CDATA["Bottom 5 Test Steps"]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIBottomTestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIExecutionNotablesReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="254" width="536" height="1"
+							   uuid="e6035854-2ff1-4b90-b64b-f088d0bdf507">
+					<printWhenExpression>
+						<![CDATA[$P{IncludeResults} && $P{IncludeScenarioResults} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="257" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="b7dc9776-461b-4167-b1cf-2e72d18a217a">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeScenarioResults}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIScenariosResults}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIScenariosResultsReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="279" width="536" height="1"
+							   uuid="b27852c0-a1ad-429a-8537-ee0ae920e65f">
+					<printWhenExpression>
+						<![CDATA[$P{IncludeResults} && $P{IncludeTestStepsHistory} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="281" width="535" height="20"
+							   isRemoveLineWhenBlank="true" uuid="6b6c1b7f-14d1-4ab8-9b7f-fb968bd8e80d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeTestStepsHistory}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUITestSteps}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUITestCasesTestStepsReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="303" width="536" height="1"
+							   uuid="6d0408fd-5dde-4690-b3fd-02b098c76bf5">
+					<printWhenExpression><![CDATA[$P{IncludeStatistics} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="305" width="536" height="20"
+							   isRemoveLineWhenBlank="true" uuid="c29d3c2b-3305-4f78-9519-ed928a1a2eb4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeStatistics}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIStatistics}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIStatisticsReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="326" width="536" height="1"
+							   uuid="331b63d6-37a4-43af-8d37-87f0d6969ca3">
+					<printWhenExpression>
+						<![CDATA[$P{IncludeTestStepsHistory} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="328" width="536" height="20"
+							   isRemoveLineWhenBlank="true" uuid="c0b82867-dbfd-403b-b6fe-604cc5f02bf5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeTestStepsHistory}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUITestStepsHistory}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUITestStepsHistoryReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="350" width="536" height="1"
+							   uuid="a08cda1c-fa05-4376-8fb0-c54fa67919c5">
+					<printWhenExpression>
+						<![CDATA[$P{IncludeStatisticHistory} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="352" width="536" height="20"
+							   uuid="99695331-bb4f-4d12-ace7-f984315e0680">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeStatisticHistory}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{LoadUIStatisticHistory}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIStatisticHistoryReport"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement positionType="Float" x="0" y="374" width="536" height="1"
+							   uuid="5c3510d7-183b-402d-9e74-339875281838">
+					<printWhenExpression><![CDATA[$P{IncludeHelp} && !$P{FlowLayout}]]></printWhenExpression>
+				</reportElement>
+			</break>
+			<subreport isUsingCache="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="377" width="536" height="20"
+							   isRemoveLineWhenBlank="true" uuid="6ee10393-fe74-4a46-89b0-b662f92ce994">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[$P{IncludeHelp}]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{LoadUIHelp}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIHelpReport"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24">
+			<printWhenExpression><![CDATA[!$P{FlowLayout}]]></printWhenExpression>
+			<textField>
+				<reportElement x="1" y="0" width="535" height="20" forecolor="#999999"
+							   uuid="f4050396-f71a-4a42-8740-e4e811517cc4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["created with ReadyAPI on " + new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="535" height="20" forecolor="#999999"
+							   uuid="697a93f8-796d-46ab-bccd-d1fa1defdb42"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["created with ReadyAPI on " + new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
