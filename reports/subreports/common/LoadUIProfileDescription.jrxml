@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-06-01T13:02:43 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIProfileDescription" pageWidth="550" pageHeight="802" whenNoDataType="NoDataSection"
+              columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              whenResourceMissingType="Error" uuid="b8077080-61fb-44db-a362-f7bfc7708ce5">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <parameter name="Title" class="java.lang.String"/>
+    <parameter name="Name" class="java.lang.String"/>
+    <parameter name="Icon" class="java.lang.String"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="value" class="java.lang.String"/>
+    <columnHeader>
+        <band height="23">
+            <textField>
+                <reportElement style="Normal" x="22" y="0" width="248" height="23"
+                               uuid="acdd3ff9-6fe9-484d-8b65-85ed3ff37243"/>
+                <textFieldExpression><![CDATA[$P{Title}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="RealSize" isUsingCache="true" onErrorType="Blank">
+                <reportElement x="281" y="2" width="16" height="16" isRemoveLineWhenBlank="true"
+                               uuid="7b6aac94-f20c-471b-815b-f586c6b503aa">
+                    <printWhenExpression><![CDATA[!$P{Icon}.equals("null")]]></printWhenExpression>
+                </reportElement>
+                <imageExpression><![CDATA["logo:" + $P{Icon}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement style="Normal" x="300" y="0" width="250" height="23"
+                               uuid="54997ac1-5ae0-4c50-bdcb-4be8a105e799">
+                    <property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$P{Name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="23" splitType="Stretch">
+            <textField>
+                <reportElement style="Normal" x="34" y="0" width="236" height="23"
+                               uuid="0ebd60dc-1d85-4392-9266-5cbadf9d47ec"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="300" y="0" width="250" height="23"
+                               uuid="f38ebab9-8abd-41b7-80d7-e1626b7f1958">
+                    <property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

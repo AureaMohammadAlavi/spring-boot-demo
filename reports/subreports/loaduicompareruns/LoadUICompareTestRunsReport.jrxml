@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUICompareTestRunsReport" pageWidth="505" pageHeight="802" columnWidth="505" leftMargin="0" rightMargin="0"
+              topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <template>"../../styles.jrtx"</template>
+	<parameter name="FlowLayout" class="java.lang.Boolean"/>
+	<parameter name="LoadUIStatistics" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="firstRunName" class="java.lang.String"/>
+    <field name="secondRunName" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <columnHeader/>
+    <detail>
+        <band height="235">
+			<staticText>
+				<reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+				<textElement/>
+				<text>Test Runs Comparison for</text>
+			</staticText>
+			<textField>
+				<reportElement style="MainHeader" x="1" y="35" width="535" height="40"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["${=loadUITest.name}"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="SmallHeader" x="15" y="80" width="535" height="23"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String">"Run 1: " + $F{firstRunName}</textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="SmallHeader" x="15" y="106" width="535" height="23"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String">"Run 2: " + $F{secondRunName}</textFieldExpression>
+			</textField>
+			<subreport>
+                <reportElement x="0" y="125" width="535" height="110"/>
+				<subreportParameter name="IncludeOverview">
+					<subreportParameterExpression><![CDATA[false]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+                <dataSourceExpression><![CDATA[$P{LoadUIStatistics}]]></dataSourceExpression>
+                <subreportExpression class="java.lang.String"><![CDATA["subreport:LoadUIStatisticsReport"]]></subreportExpression>
+            </subreport>
+		</band>
+    </detail>
+</jasperReport>

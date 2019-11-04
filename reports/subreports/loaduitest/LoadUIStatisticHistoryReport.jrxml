@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIStatisticHistoryReport" pageWidth="505" pageHeight="802" columnWidth="505" leftMargin="0" rightMargin="0"
+              whenNoDataType="NoDataSection"
+              topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <template>"../../styles.jrtx"</template>
+	<field name="statisticName" class="java.lang.String"/>
+    <field name="subreportName" class="java.lang.String"/>
+    <field name="statisticMetricsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+	<columnHeader>
+		<band height="40">
+			<staticText>
+                <reportElement style="SmallHeader" positionType="Float" x="0" y="0" width="505" height="23"/>
+                <textElement/>
+                <text>Statistic History</text>
+            </staticText>
+		</band>
+	</columnHeader>
+    <detail>
+        <band height="90" splitType="Prevent">
+            <textField>
+                <reportElement positionType="Float" x="0" y="0" width="505" height="20"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{statisticName}]]></textFieldExpression>
+            </textField>
+            <subreport>
+                <reportElement positionType="Float" x="0" y="30" width="505" height="50" isRemoveLineWhenBlank="true">
+                </reportElement>
+                <dataSourceExpression><![CDATA[$F{statisticMetricsDataSource}]]></dataSourceExpression>
+                <subreportExpression class="java.lang.String"><![CDATA[$F{subreportName}]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+    <noData>
+        <band height="38">
+            <staticText>
+                <reportElement style="MediumHeader" x="0" y="0" width="505" height="23"/>
+                <textElement/>
+                <text>Statistic History</text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="23" width="505" height="15"/>
+                <textElement/>
+                <text><![CDATA[No statistics available]]> </text>
+            </staticText>
+        </band>
+    </noData>
+</jasperReport>

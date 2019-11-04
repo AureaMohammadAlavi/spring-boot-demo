@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-30T15:40:51 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIStatisticsReport" pageWidth="550" pageHeight="802" whenNoDataType="NoDataSection"
+              columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="26965192-5f86-4bd3-8aad-2929acd106b1">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <parameter name="FlowLayout" class="java.lang.Boolean"/>
+    <field name="isChart" class="java.lang.Boolean"/>
+    <field name="title" class="java.lang.String"/>
+    <field name="chartImage" class="java.awt.Image"/>
+    <field name="tableDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <field name="subreportName" class="java.lang.String"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <columnHeader>
+        <band height="38">
+            <staticText>
+                <reportElement style="SmallHeader" x="0" y="0" width="550" height="23"
+                               uuid="c08853bc-3a5b-4395-9f59-59101f4a71d7"/>
+                <text><![CDATA[Statistics]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="100" splitType="Prevent">
+            <textField>
+                <reportElement positionType="Float" x="0" y="0" width="550" height="20"
+                               uuid="fe2827bc-a5b0-4039-8a89-0b4587f6d3c3"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="RealHeight">
+                <reportElement x="0" y="40" width="550" height="50" uuid="87265a4c-569b-4c0f-b377-49ba2224aa9e">
+                    <printWhenExpression><![CDATA[$F{isChart}]]></printWhenExpression>
+                </reportElement>
+                <imageExpression><![CDATA[$F{chartImage}]]></imageExpression>
+            </image>
+            <subreport>
+                <reportElement positionType="Float" x="0" y="40" width="550" height="50" isRemoveLineWhenBlank="true"
+                               uuid="988a5c92-8f04-4cb0-945a-f294c6dc09fc">
+                    <printWhenExpression><![CDATA[!$F{isChart}]]></printWhenExpression>
+                </reportElement>
+                <dataSourceExpression><![CDATA[$F{tableDataSource}]]></dataSourceExpression>
+                <subreportExpression><![CDATA[$F{subreportName}]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+    <noData>
+        <band height="38">
+            <staticText>
+                <reportElement style="SmallHeader" x="1" y="0" width="549" height="23"
+                               uuid="571c6702-2c4b-4029-83f8-e1d01b629401"/>
+                <text><![CDATA[Statistics]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="23" width="550" height="15" uuid="52147e12-d55d-4462-85f4-d14aff98bd7d"/>
+                <text><![CDATA[No statistics selected on the statistics page]]></text>
+            </staticText>
+        </band>
+    </noData>
+</jasperReport>

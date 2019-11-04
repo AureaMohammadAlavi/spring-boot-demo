@@ -1,0 +1,10 @@
+Status: FAIL
+Time Taken: 0
+Size: 0
+Timestamp: Fri Oct 25 09:49:46 EET 2019
+TestStep: REST Request
+
+----------------- Messages ------------------------------
+org.apache.http.conn.HttpHostConnectException: Connect to localhost:8090 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)
+
+- missing response / garbage collected -

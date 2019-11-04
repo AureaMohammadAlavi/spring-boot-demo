@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="LoadUITestStepsContinueReport" language="groovy" pageWidth="535" pageHeight="842" columnWidth="535"
+			  leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3d16e720-12c6-40ad-9aef-89f16524601c">
+	<template><![CDATA["../../styles.jrtx"]]></template>
+	<field name="testStepName" class="java.lang.String"/>
+	<field name="averageTimeTaken" class="java.lang.String"/>
+	<field name="percentile75" class="java.lang.String"/>
+	<field name="percentile98" class="java.lang.String"/>
+	<field name="percentile90" class="java.lang.String"/>
+	<field name="percentile95" class="java.lang.String"/>
+	<columnHeader>
+		<band height="47">
+			<staticText>
+				<reportElement x="0" y="0" width="535" height="23" uuid="313bb2b1-ce67-4dd4-a075-c17bbe9620e3"/>
+				<box bottomPadding="0">
+					<pen lineStyle="Double"/>
+					<topPen lineStyle="Double"/>
+					<leftPen lineStyle="Double"/>
+					<bottomPen lineStyle="Double"/>
+					<rightPen lineStyle="Double"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Response time details]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="0" y="23" width="185" height="17"
+							   uuid="75448176-fca6-4873-8ecc-34934ff736a5"/>
+				<textFieldExpression><![CDATA["Test Step"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="185" y="23" width="70" height="17"
+							   uuid="409e68ad-0292-4cba-bc0f-6a94e917d684"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Avg (ms)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="255" y="23" width="70" height="17"
+							   uuid="6aa88ce6-17a3-42b8-bd8d-27f28c2083b1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["75%"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="325" y="23" width="70" height="17"
+							   uuid="6aa88ce6-17a3-42b8-bd8d-27f28c2083b0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["90%"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="395" y="23" width="70" height="17"
+							   uuid="be1cebd4-e9ba-4bd7-99cf-4c4584d9e50b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["95%"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="ColumnHeader" x="465" y="23" width="70" height="17"
+							   uuid="900201de-0d15-4842-8df5-226ade5dfe68"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["98%"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Prevent">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="185" height="20" uuid="2dbd6195-546a-427b-97d1-62604347a50f"/>
+				<textFieldExpression><![CDATA[$F{testStepName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="70" height="20" uuid="ec687f5e-9a03-4010-9be6-05b8b42e7622"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{averageTimeTaken}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="0" width="70" height="20" uuid="50b3e568-a183-4f07-9341-016947e8606d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{percentile75}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="0" width="70" height="20" uuid="50b3e568-a183-4f07-9341-016947e8606d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{percentile90}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="70" height="20" uuid="276e3d55-57f8-4fad-97e5-7e4b2dfda2ca"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{percentile95}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="70" height="20" uuid="d8dc2d69-bdbb-4860-90ee-a56fac50ea1e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{percentile98}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

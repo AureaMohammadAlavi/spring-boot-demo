@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUITestStepsHistoryReport" pageWidth="505" pageHeight="802" columnWidth="505" leftMargin="0" rightMargin="0"
+              topMargin="0" bottomMargin="0">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <template>"../../styles.jrtx"</template>
+	<field name="testStepName" class="java.lang.String"/>
+    <field name="testStepsMetricsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+	<columnHeader>
+		<band height="40">
+			<staticText>
+                <reportElement style="SmallHeader" positionType="Float" x="0" y="0" width="505" height="23"/>
+                <textElement/>
+                <text>Test Step History</text>
+            </staticText>
+		</band>
+	</columnHeader>
+    <detail>
+        <band height="90" splitType="Prevent">
+            <textField>
+                <reportElement positionType="Float" x="0" y="00" width="505" height="20"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression class="java.lang.String"><![CDATA[$F{testStepName}]]></textFieldExpression>
+            </textField>
+            <subreport>
+                <reportElement positionType="Float" x="0" y="30" width="505" height="50" isRemoveLineWhenBlank="true">
+                </reportElement>
+                <dataSourceExpression><![CDATA[$F{testStepsMetricsDataSource}]]></dataSourceExpression>
+                <subreportExpression class="java.lang.String">"subreport:LoadUIStatisticTable10Columns"
+                </subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-06-05T08:44:57 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="LoadUIScenariosResultsReport" pageWidth="535" pageHeight="802" columnWidth="535" leftMargin="0"
+			  rightMargin="0" topMargin="0" bottomMargin="0" uuid="54da7c8f-c18e-4af5-86f2-80056eab43b0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<template><![CDATA["../../styles.jrtx"]]></template>
+	<parameter name="FlowLayout" class="java.lang.Boolean">
+		<property name="interactive" value="false"/>
+		<property name="label" value="Flow Layout"/>
+		<parameterDescription><![CDATA[Chooses a flow layout for the report]]></parameterDescription>
+	</parameter>
+	<field name="scenariosCount" class="java.lang.Integer"/>
+	<field name="scenarioName" class="java.lang.String"/>
+	<field name="testResults" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="graphicalData" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="loadTargets" class="net.sf.jasperreports.engine.JRDataSource"/>
+    <field name="loadTargetsContinue" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="topTestCases" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="bottomTestCases" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="topTestSteps" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="bottomTestSteps" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="top5Dispersion" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<detail>
+		<band height="101">
+			<textField>
+				<reportElement style="MediumHeader" x="0" y="0" width="535" height="32"
+							   uuid="2d8cfea0-3d30-4749-aafe-0220475d972d"/>
+				<textFieldExpression>
+					<![CDATA["Load Test Results for "+$F{scenarioName}+" Scenario"]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" x="0" y="43" width="535" height="50" isRemoveLineWhenBlank="true"
+							   uuid="06ca6e7a-ceac-449f-9680-6b949f7bfbbc"/>
+				<subreportParameter name="FlowLayout">
+					<subreportParameterExpression><![CDATA[$P{FlowLayout}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TestResults">
+					<subreportParameterExpression><![CDATA[$F{testResults}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="GraphicalData">
+					<subreportParameterExpression><![CDATA[$F{graphicalData}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LoadTargets">
+					<subreportParameterExpression><![CDATA[$F{loadTargets}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="LoadTargetsContinue">
+                    <subreportParameterExpression><![CDATA[$F{loadTargetsContinue}]]></subreportParameterExpression>
+                </subreportParameter>
+				<subreportParameter name="TopTestCases">
+					<subreportParameterExpression><![CDATA[$F{topTestCases}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="BottomTestCases">
+					<subreportParameterExpression><![CDATA[$F{bottomTestCases}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="TopTestSteps">
+					<subreportParameterExpression><![CDATA[$F{topTestSteps}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="BottomTestSteps">
+					<subreportParameterExpression><![CDATA[$F{bottomTestSteps}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="Top5Dispersion">
+					<subreportParameterExpression><![CDATA[$F{top5Dispersion}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$F{testResults}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport:LoadUIScenarioResultsReport"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

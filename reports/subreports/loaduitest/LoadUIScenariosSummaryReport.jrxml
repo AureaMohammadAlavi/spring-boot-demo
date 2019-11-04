@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-09-26T08:44:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIScenariosSummaryReport" language="groovy" pageWidth="550" pageHeight="842" columnWidth="550"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5b8a7228-e630-49eb-aa83-620dce2eaa87">
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <field name="testCaseName" class="java.lang.String"/>
+    <field name="executionTime" class="java.lang.String"/>
+    <field name="queuedRequestCount" class="java.lang.String"/>
+    <field name="assertionsCount" class="java.lang.String"/>
+    <field name="failedAssertionsCount" class="java.lang.String"/>
+    <columnHeader>
+        <band height="79">
+            <staticText>
+                <reportElement style="SmallHeader" x="0" y="0" width="545" height="23"
+                               uuid="7498ad3a-d253-41c3-9fa7-330b5f076e96"/>
+                <box bottomPadding="0">
+                    <pen lineStyle="Double"/>
+                    <topPen lineStyle="Double"/>
+                    <leftPen lineStyle="Double"/>
+                    <bottomPen lineStyle="Double"/>
+                    <rightPen lineStyle="Double"/>
+                </box>
+                <text><![CDATA[Scenarios Summary]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="Normal" x="0" y="25" width="545" height="35"
+                               uuid="4b148a54-1232-4311-b2c8-89dba1dae793"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <text>
+                    <![CDATA[This section provides information about target test cases and assertions for each scenario in the load test.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="ColumnHeader" x="0" y="63" width="175" height="14"
+                               uuid="2bdda638-3cc6-4b8b-871d-fe6c0a7857bf"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Scenario name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="ColumnHeader" x="175" y="63" width="80" height="14"
+                               uuid="df37b69a-25e6-4fe1-aa44-0a56b4f6dc22"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Duration]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="ColumnHeader" x="255" y="63" width="60" height="14"
+                               uuid="121c33bb-f05c-402c-b838-6c32d2cc07a7"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Targets]]></text>
+            </staticText>
+            <staticText>
+                <reportElement style="ColumnHeader" x="315" y="63" width="120" height="14"
+                               uuid="a557cd43-fb35-404d-bdf4-3dfa30094c47"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Assertions checked]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement style="ColumnHeader" x="435" y="63" width="110" height="14"
+                               uuid="54c06893-a9c3-4f08-825b-85046d1f2d81"/>
+                <textElement textAlignment="Right">
+                    <font isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Assertions failed"]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Prevent">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="0" y="0" width="175" height="20" uuid="b0d92c32-a786-4cad-b7c8-0edb0bbe34fb"/>
+                <textFieldExpression><![CDATA[$F{testCaseName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="175" y="0" width="80" height="20" uuid="149ea35a-2273-4c36-a5be-312b9d40c32e"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{executionTime}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="255" y="0" width="60" height="20" uuid="c796fa6c-bb4f-480f-994b-191180984a31"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{queuedRequestCount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="315" y="0" width="120" height="20" uuid="b276e4b2-8997-412d-ac3c-819a84e2f4ad"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{assertionsCount}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="435" y="0" width="110" height="20" uuid="8536ae89-6ff6-48ad-aca5-979bae3074bf"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$F{failedAssertionsCount}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-05-30T15:37:32 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LoadUIGraph" pageWidth="550" pageHeight="353" columnWidth="550" leftMargin="0" rightMargin="0"
+              topMargin="0" bottomMargin="0" uuid="39abfe99-cd44-43a4-8af6-412ba007aa6e">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <template><![CDATA["../../styles.jrtx"]]></template>
+    <field name="title" class="java.lang.String"/>
+    <field name="hintText" class="java.lang.String"/>
+    <field name="image" class="java.awt.Image"/>
+    <detail>
+        <band height="353" splitType="Stretch">
+            <textField>
+                <reportElement style="SmallHeader" x="0" y="10" width="550" height="23"
+                               uuid="0fe1f386-252e-4537-9c8e-f20fdb085beb"/>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Normal" x="0" y="33" width="550" height="57"
+                               uuid="e65cd074-f16b-4ec2-bc06-14d206e494c7"/>
+                <textElement textAlignment="Justified"/>
+                <textFieldExpression><![CDATA[$F{hintText}]]></textFieldExpression>
+            </textField>
+            <image scaleImage="RetainShape">
+                <reportElement x="0" y="90" width="550" height="263" uuid="cf68a990-484b-4116-8d8a-2e6f119fabf5"/>
+                <imageExpression><![CDATA[$F{image}]]></imageExpression>
+            </image>
+        </band>
+    </detail>
+</jasperReport>
